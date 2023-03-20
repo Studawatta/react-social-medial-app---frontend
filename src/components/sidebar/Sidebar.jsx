@@ -10,6 +10,9 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import EventIcon from '@mui/icons-material/Event';
 import SchoolIcon from '@mui/icons-material/School';
 
+import { Users } from '../../dummyData';
+import CloseFriend from '../CloseFriend/CloseFriend';
+
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -55,86 +58,12 @@ const Sidebar = () => {
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
+          {Users.map((u) => (
+            <CloseFriend
+              key={u.id}
+              user={u}
             />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/propic2.jpg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Sandun Thisara</span>
-          </li>
+          ))}
         </ul>
       </div>
     </div>

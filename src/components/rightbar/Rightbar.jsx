@@ -4,6 +4,8 @@ import { Users } from '../../dummyData';
 import Online from '../online/Online';
 
 const Rightbar = ({ Profile }) => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const HomeRightbar = () => {
     return (
       <>
@@ -57,7 +59,7 @@ const Rightbar = ({ Profile }) => {
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
             <img
-              src="assets/person/propic1.jpg"
+              src={`${PF}person/propic1.jpg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -65,7 +67,7 @@ const Rightbar = ({ Profile }) => {
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/propic2.jpg"
+              src={`${PF}person/propic2.jpg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -73,7 +75,7 @@ const Rightbar = ({ Profile }) => {
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/propic3.jpg"
+              src={`${PF}person/propic3.jpg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -81,7 +83,7 @@ const Rightbar = ({ Profile }) => {
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/propic4.jpg"
+              src={`${PF}person/propic4.jpg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -89,7 +91,7 @@ const Rightbar = ({ Profile }) => {
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/propic5.jpg"
+              src={`${PF}person/propic5.jpg`}
               alt=""
               className="rightbarFollowingImg"
             />

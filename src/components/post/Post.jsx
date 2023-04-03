@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './post.css';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Users } from '../../dummyData';
+import axios from 'axios';
+import TimeAgo from 'timeago-react';
 
 const Post = ({ post }) => {
-  const [like, setLike] = useState(post.like);
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
+  const [user, setUser] = useState({});
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`users/${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
@@ -18,16 +28,12 @@ const Post = ({ post }) => {
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={
-                PF + Users.filter((u) => u.id === post.userId)[0].profilePicture
-              }
+              src={user.profilePicture || PF + 'person/NoAvatar.png'}
               alt=""
               className="postProfileImg"
             />
-            <span className="postUsername">
-              {Users.filter((u) => u.id === post.userId)[0].username}
-            </span>
-            <span className="postDate">{post.date}</span>
+            <span className="postUsername">{user.username}</span>
+            <span className="postDate">time</span>
           </div>
           <div className="postTopRight">
             <MoreVertIcon />
@@ -36,7 +42,7 @@ const Post = ({ post }) => {
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
           <img
-            src={PF + post.photo}
+            src={post.img}
             alt=""
             className="postImg"
           />

@@ -10,7 +10,7 @@ const Login = () => {
   const email = useRef();
   const password = useRef();
 
-  const { user, isFetching, error, dispatch } = useContext(AuthContex);
+  const { user, isFetching, dispatch } = useContext(AuthContex);
 
   const handleClick = (e) => {
     e.preventDefault();

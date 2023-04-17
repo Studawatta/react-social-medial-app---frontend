@@ -7,29 +7,36 @@ import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useContext } from 'react';
 import { AuthContex } from '../../contex/AuthContext';
+import {
+  Searchbar,
+  TopbarCenter,
+  TopbarLeft,
+  TopdarContainer,
+  SearchInput,
+  SearchbarIcon,
+} from './topbarElements';
 
 const Topbar = () => {
   const { user } = useContext(AuthContex);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
-    <div className="topbarContainer">
-      <div className="topbarLeft">
+    <TopdarContainer>
+      <TopbarLeft>
         <Link
           to="/"
           style={{ textDecoration: 'none' }}
         >
           <span className="logo">Mysocial</span>
         </Link>
-      </div>
-      <div className="topbarCenter">
-        <div className="searchbar">
-          <SearchIcon className="searchIcon" />
-          <input
-            placeholder="Search for friend, post or video"
-            className="searchInput"
-          />
-        </div>
-      </div>
+      </TopbarLeft>
+      <TopbarCenter>
+        <Searchbar>
+          <SearchbarIcon />
+          {/* <SearchIcon className="searchIcon" /> */}
+          <SearchInput placeholder="Search for friend, post or video" />
+        </Searchbar>
+      </TopbarCenter>
+
       <div className="topbarRight">
         <div className="topbarLinks">
           <span className="topbarLink">Homepage</span>
@@ -61,7 +68,7 @@ const Topbar = () => {
           />
         </Link>
       </div>
-    </div>
+    </TopdarContainer>
   );
 };
 

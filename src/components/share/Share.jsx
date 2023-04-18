@@ -1,11 +1,24 @@
 import React, { useContext, useRef, useState } from 'react';
-import './share.css';
+// import './share.css';
 import PermMediaIcon from '@mui/icons-material/PermMedia';
 import LabelIcon from '@mui/icons-material/Label';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { AuthContex } from '../../contex/AuthContext';
 import axios from 'axios';
+import {
+  Bottom,
+  Button,
+  Container,
+  Hr,
+  Icon,
+  Input,
+  Option,
+  Options,
+  ProfileImg,
+  Top,
+  Wrapper,
+} from './shareElements';
 
 const Share = () => {
   const { user } = useContext(AuthContex);
@@ -42,39 +55,31 @@ const Share = () => {
   };
 
   return (
-    <div className="share">
-      <div className="shareWrapper">
-        <div className="shareTop">
-          <img
+    <Container>
+      <Wrapper>
+        <Top>
+          <ProfileImg
             src={
               user.profilePicture
                 ? PF + user.profilePicture
                 : PF + 'person/noAvatar.png'
             }
             alt=""
-            className="shareProfileImg"
           />
-          <input
+
+          <Input
             placeholder={"What's in your mind " + user.username + '?'}
             ref={desc}
-            className="shareInput"
           />
-        </div>
-        <hr className="shareHr" />
-        <form
-          className="shareBottom"
-          onSubmit={submitHandler}
-        >
-          <div className="shareOptions">
-            <label
-              htmlFor="file"
-              className="shareOption"
-            >
-              <PermMediaIcon
-                htmlColor="tomato"
-                className="shareIcon"
-              />
-              <span className="shareOptionText">Photo or Video</span>
+        </Top>
+        <Hr />
+        <Bottom onSubmit={submitHandler}>
+          <Options>
+            <Option htmlFor="file">
+              <Icon>
+                <PermMediaIcon htmlColor="tomato" />
+              </Icon>
+              <span>Photo or Video</span>
               <input
                 style={{ display: 'none' }}
                 type="file"
@@ -82,38 +87,40 @@ const Share = () => {
                 accept='".png,.jpeg,.jpg'
                 onChange={(e) => setFile(e.target.files[0])}
               />
-            </label>
-            <div className="shareOption">
-              <LabelIcon
-                htmlColor="blue"
-                className="shareIcon"
-              />
-              <span className="shareOptionText">Tag</span>
-            </div>
-            <div className="shareOption">
-              <LocationOnIcon
-                htmlColor="green"
-                className="shareIcon"
-              />
-              <span className="shareOptionText">Location</span>
-            </div>
-            <div className="shareOption">
-              <EmojiEmotionsIcon
-                htmlColor="goldenrod"
-                className="shareIcon"
-              />
-              <span className="shareOptionText">Feelings</span>
-            </div>
-          </div>
-          <button
-            className="shareButton"
-            type="submit"
-          >
-            Share
-          </button>
-        </form>
-      </div>
-    </div>
+            </Option>
+
+            <Option>
+              <Icon>
+                <LabelIcon htmlColor="blue" />
+              </Icon>
+              <span>Tag</span>
+            </Option>
+
+            <Option>
+              <Icon>
+                <LocationOnIcon
+                  htmlColor="green"
+                  className="shareIcon"
+                />
+              </Icon>
+              <span>Location</span>
+            </Option>
+
+            <Option>
+              <Icon>
+                <EmojiEmotionsIcon
+                  htmlColor="goldenrod"
+                  className="shareIcon"
+                />
+              </Icon>
+              <span>Feelings</span>
+            </Option>
+          </Options>
+
+          <Button type="submit">Share</Button>
+        </Bottom>
+      </Wrapper>
+    </Container>
   );
 };
 

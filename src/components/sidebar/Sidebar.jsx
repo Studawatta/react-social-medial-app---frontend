@@ -1,5 +1,5 @@
 import React from 'react';
-import './sidebar.css';
+
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import ChatIcon from '@mui/icons-material/Chat';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
@@ -12,61 +12,80 @@ import SchoolIcon from '@mui/icons-material/School';
 
 import { Users } from '../../dummyData';
 import CloseFriend from '../CloseFriend/CloseFriend';
+import {
+  SidebarButton,
+  SidebarContainer,
+  SidebarFriendList,
+  SidebarHr,
+  SidebarList,
+  SidebarListItem,
+  SidebarListItemText,
+  SidebarWrapper,
+} from './sidebarElements';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <div className="sidebarWrapper">
-        <ul className="sidebarList">
-          <li className="sidebarListItem">
+    <SidebarContainer>
+      <SidebarWrapper>
+        <SidebarList>
+          <SidebarListItem>
             <RssFeedIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Feed</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Feed</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <ChatIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Chats</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Chats</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <PlayCircleIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Videos</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <GroupIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Groups</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Groups</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <BookmarksIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Bookmarks</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Bookmarks</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <HelpOutlineIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Questions</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <WorkOutlineIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Jobs</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Jobs</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <EventIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Events</span>
-          </li>
-          <li className="sidebarListItem">
+            <SidebarListItemText>Events</SidebarListItemText>
+          </SidebarListItem>
+
+          <SidebarListItem>
             <SchoolIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Courses</span>
-          </li>
-        </ul>
-        <button className="sidebarButton">Show More</button>
-        <hr className="sidebarHr" />
-        <ul className="sidebarFriendList">
+            <SidebarListItemText>Courses</SidebarListItemText>
+          </SidebarListItem>
+        </SidebarList>
+
+        <SidebarButton>Show More</SidebarButton>
+        <SidebarHr></SidebarHr>
+        <SidebarFriendList>
           {Users.map((u) => (
             <CloseFriend
               key={u.id}
               user={u}
             />
           ))}
-        </ul>
-      </div>
-    </div>
+        </SidebarFriendList>
+      </SidebarWrapper>
+    </SidebarContainer>
   );
 };
 

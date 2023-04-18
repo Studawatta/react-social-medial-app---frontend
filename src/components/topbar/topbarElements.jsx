@@ -51,7 +51,7 @@ export const TopbarRight = styled.div`
   justify-content: space-around;
   color: white;
 `;
-export const TopbarLinks = styled.div``;
+
 export const TopbarLink = styled.span`
   margin-right: 10px;
   font-size: 14px;

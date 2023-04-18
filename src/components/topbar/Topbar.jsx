@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './topbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -14,6 +13,13 @@ import {
   TopdarContainer,
   SearchInput,
   SearchbarIcon,
+  Logo,
+  TopbarImg,
+  TopbarRight,
+  TopbarLink,
+  TopbarIcons,
+  TopbarIconItem,
+  TopbarIconBadge,
 } from './topbarElements';
 
 const Topbar = () => {
@@ -26,7 +32,7 @@ const Topbar = () => {
           to="/"
           style={{ textDecoration: 'none' }}
         >
-          <span className="logo">Mysocial</span>
+          <Logo>MySocial</Logo>
         </Link>
       </TopbarLeft>
       <TopbarCenter>
@@ -36,38 +42,36 @@ const Topbar = () => {
           <SearchInput placeholder="Search for friend, post or video" />
         </Searchbar>
       </TopbarCenter>
-
-      <div className="topbarRight">
+      <TopbarRight>
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">TimeLine</span>
+          <TopbarLink>Homepage</TopbarLink>
+          <TopbarLink>TimeLine</TopbarLink>
         </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
+        <TopbarIcons>
+          <TopbarIconItem>
             <PersonIcon />
-            <span className="topbarIconBadge">1</span>
-          </div>
-          <div className="topbarIconItem">
+            <TopbarIconBadge>1</TopbarIconBadge>
+          </TopbarIconItem>
+          <TopbarIconItem>
             <ChatIcon />
-            <span className="topbarIconBadge">2</span>
-          </div>
-          <div className="topbarIconItem">
+            <TopbarIconBadge>2</TopbarIconBadge>
+          </TopbarIconItem>
+          <TopbarIconItem>
             <NotificationsIcon />
-            <span className="topbarIconBadge">1</span>
-          </div>
-        </div>
+            <TopbarIconBadge>1</TopbarIconBadge>
+          </TopbarIconItem>
+        </TopbarIcons>
+
         <Link to={`/profile/${user.username}`}>
-          <img
+          <TopbarImg
             src={
               user.profilePicture
                 ? PF + user.profilePicture
                 : PF + 'person/noAvatar.png'
             }
-            alt=""
-            className="topbarImg"
           />
         </Link>
-      </div>
+      </TopbarRight>
     </TopdarContainer>
   );
 };
